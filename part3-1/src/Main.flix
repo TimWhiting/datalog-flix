@@ -1,4 +1,5 @@
-def foo(): List[(String, Int32)] =
+use Down.Down
+def foo(): Vector[(String, Int32)] =
     let rules = #{
         Foo("x"; 1).
         Foo("x"; 2).
@@ -8,7 +9,7 @@ def foo(): List[(String, Int32)] =
     };
     query rules select (x, y) from Foo(x; y)
 
-def bar(): List[(String, Down[Int32])] =
+def bar(): Vector[(String, Down[Int32])] =
     let rules = #{
         Bar("x"; Down(1)).
         Bar("x"; Down(2)).

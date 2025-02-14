@@ -1,0 +1,9 @@
+[package]
+name        = "part2-3"
+description = "Part2-3 of a blog series"
+version     = "0.1.0"
+flix        = "0.35.0"
+license     = "Apache-2.0"
+authors     = ["John Doe <john@example.com>"]
+[dependencies]
+"github:mlutze/flix-json" = "0.12.17"

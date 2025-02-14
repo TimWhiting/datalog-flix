@@ -1,11 +1,14 @@
+
 def main(): Unit \ IO =
+    run {
+        let parents = inject getParents() into ParentOf;
 
-    let parents = inject Json.getParents() into ParentOf;
+        let got = #{
+            SiblingOf(x, y) :- ParentOf(p, x), ParentOf(p, y), if (x != y).
+        };
 
-    let got = #{
-        SiblingOf(x, y) :- ParentOf(p, x), ParentOf(p, y), if x != y.
-    };
+        let siblings = query got, parents select (x, y) from SiblingOf(x, y);
 
-    let siblings = query got, parents select (x, y) from SiblingOf(x, y);
-
-    println(siblings)
+        println(siblings)
+    } with Console.runWithIO
+      with FileReadWithResult.runWithIO
